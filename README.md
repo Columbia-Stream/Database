@@ -1,6 +1,7 @@
 This repository contains SQL scripts for setting up a database schema. The database, named Project_SQL, manages user accounts and video uploads.
 
 **Database Structure**
+
 The database consists of two main tables: Users Table and Video_DB Table.
 
 **Usage Notes**
