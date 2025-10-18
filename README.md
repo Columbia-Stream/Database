@@ -1,12 +1,12 @@
-This repository contains SQL scripts for setting up a database schema. The database, named Project_SQL, manages user accounts and video uploads.
+This repository contains SQL script for setting up a database schema. The database, named Columbia Stream Schema, manages courses, course offerings, users, instructors, and associated video content.
 
 **Database Structure**
 
-The database consists of two main tables: Users Table and Video_DB Table.
+The database schema is composed of five core tables: Courses, CourseOfferings, CourseInstructors, Users, and Videos.
 
 **Usage Notes**
-1. Ensure that the Users table is populated with valid UNI values before inserting records into the Video_DB table, as the foreign key constraint requires a valid professor_uni.
-2. The email must be in the format UNI@columbia.edu.
-3. The role column in the Users table is restricted to 'Student' or 'Faculty' to maintain data integrity.
-4. The uploaded_at column in Video_DB automatically records the timestamp of video uploads.
+1. The email must be in the format UNI@columbia.edu.
+2. Deleting a course will automatically delete related course offerings, instructors, and videos (due to cascade deletes).
+3. Deleting a faculty member will set their uploaded videos’ prof_uni to NULL but not remove the videos.
+4. The role column in the Users table is restricted to 'Student' or 'Faculty' to maintain data integrity.
 
