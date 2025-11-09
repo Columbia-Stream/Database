@@ -1,0 +1,13 @@
+create table Users
+(
+    uni      varchar(50)                 primary key,
+    role     enum ('student', 'faculty') not null,
+    email    varchar(255)                not null,
+    password varchar(255)                not null,
+    constraint email
+        unique (email)
+);
+insert into Users values('abc9','faculty','abc9@columbia.edu','qwerty123');
+insert into Users values('def9','faculty','def9@columbia.edu','qwerty124');
+insert into Users values('abc4','student','abc4@columbia.edu','qwerty12');
+insert into Users values('fgh5','student','fgh5@columbia.edu','qwerty1');
