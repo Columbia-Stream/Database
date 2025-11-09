@@ -1,0 +1,51 @@
+create table Courses
+(
+    course_id   varchar(50)  
+        primary key,
+    course_name varchar(200) not null
+);
+
+create table CourseOfferings
+(
+    offering_id int auto_increment
+        primary key,
+    course_id   varchar(50)             not null,
+    semester    enum ('Spring', 'Fall') not null,
+    year        int                     not null,
+    section     int                     not null,
+);
+
+create table  CourseInstructors
+(
+    offering_id int         not null,
+    prof_uni    varchar(50) not null,
+    primary key (offering_id, prof_uni),
+);
+
+create table Videos
+(
+    video_id    int auto_increment
+        primary key,
+    offering_id int                                 not null,
+    prof_uni    varchar(50)                         not null,
+    title       varchar(200)                        not null,
+    gcs_path    text                                not null,
+    uploaded_at timestamp default CURRENT_TIMESTAMP not null,
+    
+);
+
+
+
+insert into Courses values('COMSW4153','Cloud Computing');
+insert into Courses values('COMSW4111','Introduction to Databases');
+
+insert into CourseOfferings(course_id, semester, year,section) values('COMSW4153','Fall',2025,1);
+insert into CourseOfferings(course_id, semester, year,section) values('COMSW4153','Fall',2025,2);
+insert into CourseOfferings(course_id, semester, year,section) values('COMSW4111','Fall',2025,1);
+
+
+
+insert into CourseInstructors values(1,'abc9');
+insert into CourseInstructors values(2,'def9');
+insert into CourseInstructors values(3,'def9');
+
